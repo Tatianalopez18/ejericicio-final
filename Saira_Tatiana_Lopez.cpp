@@ -11,6 +11,7 @@ void printwhile(vector<int> array);
 void printMiddle(vector<int> array);
 void printPair(vector<int> array);
 void primeNumber(vector<int> array);
+void maximunNumber(vector<int> array);
 
 int main() {
 	int array_size, selection;	
@@ -33,6 +34,7 @@ int main() {
 	printMiddle(array);
 	printPair(array);
 	primeNumber(array);
+	maximunNumber(array);
 	return 0;
 }
 
@@ -71,14 +73,12 @@ void printPair(vector<int> array){
 	}
 	
 }
-void primeNumber(vector<int> array){
-	//array={101, 103, 107, 109, 113,181,127};	
+void primeNumber(vector<int> array){	
 	vector<int> primes;	
 	for(int i=0;i<array.size();i++){
 		bool isPrime = true;
 		for (int j = 2; j < array[i]/2; j++) {
 				int module=array[i]%j;
-				//cout<<"module "<<module<<" array "<<array[i]<<" j "<<j<<endl;
 				if(module==0){
 					isPrime=false;
 					break;
@@ -94,6 +94,19 @@ void primeNumber(vector<int> array){
 	}
 
 }
+void maximunNumber(vector<int> array){
+		int value=0, i=0;
+		
+		while(i<array.size()){
+			if(array[i]>value){
+				value=array[i];
+			}
+		
+		i++;
+	}
+	cout<<"Numero mayor "<<value<<endl;
+}
+
  
 
 
