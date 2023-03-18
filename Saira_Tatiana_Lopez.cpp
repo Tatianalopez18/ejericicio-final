@@ -72,8 +72,8 @@ int main() {
 	sort(array, sorting);
 	
 	cout<<"El vector ordenado es: "; 
-	for(int i=0;i<array.size();i++){
-		cout<<array[i]<<",";
+	for(int i=0;i<sorting.size();i++){
+		cout<<sorting[i]<<",";
 	}
 	
 	return 0;
@@ -153,7 +153,7 @@ void sort(vector<int> array, vector<int>& sorting){
 			if(array[i]>array[j]){
 				aux=array[i];
 				array[i]=array[j];
-				array[j]=aux;		
+				array[j]=aux;			
 			}
 		}	
 	}
