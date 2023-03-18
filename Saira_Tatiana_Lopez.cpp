@@ -16,24 +16,24 @@ void maximunNumber(vector<int> array);
 void sort(vector<int> array);
 
 int main() {
-	int array_size, selection;	
+	int arraysize, selection;	
 	srand((unsigned)time(0));
 	
 	cout<<"Ingrese el tamano del arreglo"<<endl;
-	cin>>array_size;
-	vector<int> array(array_size);
+	cin>>arraysize;
+	vector<int> array(arraysize);
 	
 	cout<<"Ingrese el metodo por el que quiere llenar los datos del array \n 1. Automatico (numeros entre 100 y 200) \n 2. Manual ingresando numeros entre 0 y 99."<<endl;
 	cin>>selection;
 	
 	if(selection==1){
-		for(int i=0;i<array_size;i++){		
+		for(int i=0;i<arraysize;i++){		
 		array[i]=((rand()%100)+100);
 		}
 	}else{
 		int i=0, num;
 		
-		while(i<array_size){
+		while(i<arraysize){
 			cout<<"Ingrese el numero en la posicion "<<i<<endl;
 			cin>>num;
 			if (num < 0 || num > 99){
