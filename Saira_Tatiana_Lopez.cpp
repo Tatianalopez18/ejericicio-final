@@ -2,6 +2,7 @@
 #include<ctime>
 #include <vector>
 #include<math.h>
+#include <algorithm>
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 using namespace	std;
 
@@ -12,6 +13,7 @@ void printMiddle(vector<int> array);
 void printPair(vector<int> array);
 void primeNumber(vector<int> array);
 void maximunNumber(vector<int> array);
+void sort(vector<int> array);
 
 int main() {
 	int array_size, selection;	
@@ -28,6 +30,19 @@ int main() {
 		for(int i=0;i<array_size;i++){		
 		array[i]=((rand()%100)+100);
 		}
+	}else{
+		int i=0, num;
+		
+		while(i<array_size){
+			cout<<"Ingrese el numero en la posicion "<<i<<endl;
+			cin>>num;
+			if (num < 0 || num > 99){
+				cout<<"No es un número permitido";
+			}else{
+				array[i]=num;
+				i++;
+			}	
+		}
 	}
 	printFor(array);
 	printwhile(array);
@@ -35,6 +50,7 @@ int main() {
 	printPair(array);
 	primeNumber(array);
 	maximunNumber(array);
+	sort(array);
 	return 0;
 }
 
@@ -70,23 +86,27 @@ void printPair(vector<int> array){
 	}
 	for(int i=0;i<pairs.size();i++){
 		cout<<"Pares: "<<pairs[i]<<endl;
-	}
-	
+	}	
 }
 void primeNumber(vector<int> array){	
 	vector<int> primes;	
 	for(int i=0;i<array.size();i++){
 		bool isPrime = true;
 		for (int j = 2; j < array[i]/2; j++) {
-				int module=array[i]%j;
+			int module=array[i]%j;	
 				if(module==0){
 					isPrime=false;
 					break;
-				}									
+				}															
 			}
 			if(isPrime){
-				primes.push_back(array[i]);
-				isPrime = true;
+				if(array[i]==4){					
+					isPrime = true;
+				}else{
+					primes.push_back(array[i]);
+					isPrime = true;
+				}
+
 			}
 		}
 	for(int i=0;i<primes.size();i++){
@@ -106,6 +126,22 @@ void maximunNumber(vector<int> array){
 	}
 	cout<<"Numero mayor "<<value<<endl;
 }
+void sort(vector<int> array){
+	int aux;	
+	for(int i=0;i<array.size();i++){
+		for(int j=i+1;j<array.size();j++){
+			if(array[i]>array[j]){
+				aux=array[i];
+				array[i]=array[j];
+				array[j]=aux;		
+			}
+		}	
+	}
+	cout<<"El vector ordenado es: "; 
+	for(int i=0;i<array.size();i++){
+		cout<<array[i]<<",";
+	}
+} 
 
  
 
