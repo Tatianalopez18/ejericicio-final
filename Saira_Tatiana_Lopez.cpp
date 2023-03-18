@@ -3,9 +3,8 @@
 #include <vector>
 #include<math.h>
 #include <algorithm>
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-using namespace	std;
 
+using namespace	std;
 
 void printFor(vector<int> array);
 void printwhile(vector<int> array);
@@ -16,29 +15,29 @@ void maximunNumber(vector<int> array, int&);
 void sort(vector<int> array, vector<int>&);
 
 int main() {
-	int array_size, selection, middle, max;
+	int arraysize, selection, middle, max;
 	vector<int> result, prime, sorting;		
 	srand((unsigned)time(0));
 	
 	cout<<"Ingrese el tamano del arreglo"<<endl;
-	cin>>array_size;
-	vector<int> array(array_size);
+	cin>>arraysize;
+	vector<int> array(arraysize);
 	
 	cout<<"Ingrese el metodo por el que quiere llenar los datos del array \n 1. Automatico (numeros entre 100 y 200) \n 2. Manual ingresando numeros entre 0 y 99."<<endl;
 	cin>>selection;
 	
 	if(selection==1){
-		for(int i=0;i<array_size;i++){		
+		for(int i=0;i<arraysize;i++){		
 		array[i]=((rand()%100)+100);
 		}
 	}else{
 		int i=0, num;
 		
-		while(i<array_size){
+		while(i<arraysize){
 			cout<<"Ingrese el numero en la posicion "<<i<<endl;
 			cin>>num;
 			if (num < 0 || num > 99){
-				cout<<"No es un número permitido";
+				cout<<"No es un numero permitido";
 			}else{
 				array[i]=num;
 				i++;
@@ -58,6 +57,7 @@ int main() {
 	}
 	cout<<endl;
 	
+	cout<<"Primos: ";
 	primeNumber(array, prime);
 	
 	for(int i=0;i<prime.size();i++){
@@ -132,13 +132,7 @@ void primeNumber(vector<int> array, vector<int>& prime){
 
 			}
 		}
-	/*cout<<"Primos: ";
-	for(int i=0;i<primes.size();i++){
-		cout<<primes[i]<<",";
-	}
-	cout<<endl;*/
 	prime=primes;
-
 }
 void maximunNumber(vector<int> array, int& max){
 		int value=0, i=0;
@@ -151,7 +145,6 @@ void maximunNumber(vector<int> array, int& max){
 		i++;
 	}
 	max=value;
-	//cout<<"Numero mayor "<<value<<endl;
 }
 void sort(vector<int> array, vector<int>& sorting){
 	int aux;	
@@ -164,10 +157,6 @@ void sort(vector<int> array, vector<int>& sorting){
 			}
 		}	
 	}
-/*	cout<<"El vector ordenado es: "; 
-	for(int i=0;i<array.size();i++){
-		cout<<array[i]<<",";
-	}*/
 	sorting=array;
 } 
 
