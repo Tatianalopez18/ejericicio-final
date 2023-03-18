@@ -10,6 +10,7 @@ void printFor(vector<int> array);
 void printwhile(vector<int> array);
 void printMiddle(vector<int> array);
 void printPair(vector<int> array);
+void primeNumber(vector<int> array);
 
 int main() {
 	int array_size, selection;	
@@ -31,6 +32,7 @@ int main() {
 	printwhile(array);
 	printMiddle(array);
 	printPair(array);
+	primeNumber(array);
 	return 0;
 }
 
@@ -57,17 +59,41 @@ void printMiddle(vector<int> array){
 	cout<<"Mitad: "<<array[size]<<endl;	
 }
 void printPair(vector<int> array){
-	vector<int> pares;
+	vector<int> pairs;
 	for(int i=0;i<array.size();i++){
 		int module = array[i]%2;
 		if(module==0){
-			pares.push_back(array[i]);				
+			pairs.push_back(array[i]);				
 		}	
 	}
-	for(int i=0;i<pares.size();i++){
-		cout<<"Pares: "<<pares[i]<<endl;
+	for(int i=0;i<pairs.size();i++){
+		cout<<"Pares: "<<pairs[i]<<endl;
 	}
 	
 }
+void primeNumber(vector<int> array){
+	//array={101, 103, 107, 109, 113,181,127};	
+	vector<int> primes;	
+	for(int i=0;i<array.size();i++){
+		bool isPrime = true;
+		for (int j = 2; j < array[i]/2; j++) {
+				int module=array[i]%j;
+				//cout<<"module "<<module<<" array "<<array[i]<<" j "<<j<<endl;
+				if(module==0){
+					isPrime=false;
+					break;
+				}									
+			}
+			if(isPrime){
+				primes.push_back(array[i]);
+				isPrime = true;
+			}
+		}
+	for(int i=0;i<primes.size();i++){
+		cout<<"Primos: "<<primes[i]<<endl;
+	}
+
+}
+ 
 
 
