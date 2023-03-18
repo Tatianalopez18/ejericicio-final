@@ -84,9 +84,11 @@ void printPair(vector<int> array){
 			pairs.push_back(array[i]);				
 		}	
 	}
+	cout<<"Pares: ";
 	for(int i=0;i<pairs.size();i++){
-		cout<<"Pares: "<<pairs[i]<<endl;
-	}	
+		cout<<pairs[i]<<",";
+	}
+	cout<<endl;	
 }
 void primeNumber(vector<int> array){	
 	vector<int> primes;	
@@ -100,7 +102,7 @@ void primeNumber(vector<int> array){
 				}															
 			}
 			if(isPrime){
-				if(array[i]==4){					
+				if(array[i]==4 || array[i]==4){					
 					isPrime = true;
 				}else{
 					primes.push_back(array[i]);
@@ -109,9 +111,11 @@ void primeNumber(vector<int> array){
 
 			}
 		}
+	cout<<"Primos: ";
 	for(int i=0;i<primes.size();i++){
-		cout<<"Primos: "<<primes[i]<<endl;
+		cout<<primes[i]<<",";
 	}
+	cout<<endl;
 
 }
 void maximunNumber(vector<int> array){
